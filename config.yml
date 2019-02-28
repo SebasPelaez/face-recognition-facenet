@@ -1,0 +1,10 @@
+data_dir: 'dataset'
+data_dir_lfw: 'dataset\lfw_data'
+
+image_shape: [250,250]
+
+shuffle: True
+shuffle_buffer: 4
+batch_size: 9
+
+labels_json: 'labels.json'
