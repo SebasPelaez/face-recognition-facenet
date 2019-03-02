@@ -6,5 +6,6 @@ image_shape: [250,250]
 shuffle: True
 shuffle_buffer: 4
 batch_size: 9
+learning_rate: 0.01
 
 labels_json: 'labels.json'
