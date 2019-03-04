@@ -51,13 +51,12 @@ def input_fn(sources, train, params):
 
   image_data_set = tf.data.Dataset.from_tensor_slices(image_list)
   label_data_set = tf.data.Dataset.from_tensor_slices(labels)
-
+  
   data_set = tf.data.Dataset.zip((image_data_set,label_data_set))
 
   data_set = data_set.map(parse_image, num_parallel_calls=4)
 
   if train:
-    data_set = data_set.shuffle(buffer_size=params['shuffle_buffer'])
     data_set = data_set.repeat()
 
   data_set = data_set.batch(params['batch_size'])

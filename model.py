@@ -146,7 +146,7 @@ class FaceNet_Architecture(tf.keras.models.Model):
     fully_connected = self.fc(global_average_pooling)
     fully_connected = self.activation_fc(fully_connected)
     
-    output = tf.nn.l2_normalize(fully_connected,axis=1)
+    output = tf.nn.l2_normalize(fully_connected)
     
     return output
 
@@ -164,6 +164,19 @@ def model_fn(features, labels, mode, params):
     
   model = FaceNet_Architecture()
   embeddings = model(preprocessed_images, training=training)
+
+  predictions = {
+    'embeddings': embeddings
+  }
+    
+  if mode == tf.estimator.ModeKeys.PREDICT:
+    return tf.estimator.EstimatorSpec(mode=mode, predictions=predictions)
+
+  loss = tf.contrib.losses.metric_learning.triplet_semihard_loss(
+    labels=batch_label,
+    embeddings=embeddings,
+    margin=1.0
+  )
 
   if mode == tf.estimator.ModeKeys.EVAL:
     return tf.estimator.EstimatorSpec(mode, loss=loss)

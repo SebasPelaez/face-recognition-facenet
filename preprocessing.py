@@ -62,7 +62,7 @@ def complete_data(params):
 
 def generate_datasets(params):
     
-  data_path = os.path.join(params['data_dir'],'lfw-names.txt')
+  data_path = os.path.join(params['data_dir'],params['file_list'][1])
   all_data = pd.read_csv(data_path, sep="\t", header=None)
   
   all_data = all_data.sample(frac=1).reset_index(drop=True)

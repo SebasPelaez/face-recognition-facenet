@@ -1,7 +1,10 @@
 import tensorflow as tf
 
+import argparse
+
 import data
 import model
+import utils
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -41,6 +44,9 @@ if __name__ == '__main__':
 
   parser = argparse.ArgumentParser()
   parser.add_argument('-c', '--config', help="path to configuration file", default='config.yml')
+  parser.add_argument('-v', '--verbosity', default='INFO',
+    choices=['DEBUG', 'ERROR', 'FATAL', 'INFO', 'WARM'],
+  )
   
   args = parser.parse_args()
   tf.logging.set_verbosity(args.verbosity)
