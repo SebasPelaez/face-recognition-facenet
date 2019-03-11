@@ -5,9 +5,10 @@ url_dataset: 'http://vis-www.cs.umass.edu/lfw/lfw.tgz'
 url_metadata: 'http://vis-www.cs.umass.edu/lfw/lfw-names.txt'
 
 # Parameters that may affect training
-batch_size: 16
+batch_size: 24
 learning_rate: 0.001
-max_steps: 1500
+max_steps: 3000
+distance_threshold: 1.242
 
 # Directories for dataset and checkpoints
 data_dir: 'dataset'
@@ -17,7 +18,7 @@ model_dir: 'checkpoints'
 
 # Data configuration
 shuffle: True
-shuffle_buffer: 5000
+shuffle_buffer: 4
 image_shape: [250,250]
 
 # Logging and summaries 

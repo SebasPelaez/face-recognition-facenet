@@ -22,7 +22,7 @@ def _sources(params, mode='training'):
       data.append(image_path)
 
   label = _get_labels_from_json(params,data)
-
+  
   return data,label
 
 def _get_labels_from_json(params,data):

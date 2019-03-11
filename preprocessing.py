@@ -48,17 +48,44 @@ def complete_data(params):
   for index, row in all_data.iterrows():
 
     folder_name, num_items = row
-    if num_items == 1:
-      folder_path = os.path.join(params['data_dir_lfw'],folder_name)
-      image = os.listdir(folder_path)[0]
-      image_path = os.path.join(folder_path,image)
 
-      upload_image = cv2.imread(image_path,cv2.IMREAD_COLOR)
+    folder_path = os.path.join(params['data_dir_lfw'],folder_name)
+    image = os.listdir(folder_path)[0]
+    image_path = os.path.join(folder_path,image)
+
+    upload_image = cv2.imread(image_path,cv2.IMREAD_COLOR)
+
+    if (num_items%4) == 1:
+
+      flip_image = np.flip(upload_image,0)
+      save_complete_image(folder_path=folder_path,folder_name=folder_name,image_id='1',flip_image=flip_image)
+
+      flip_image = np.flip(upload_image,1)
+      save_complete_image(folder_path=folder_path,folder_name=folder_name,image_id='2',flip_image=flip_image)
+
       flip_image = np.flip(upload_image,0)
       flip_image = np.flip(flip_image,1)
+      save_complete_image(folder_path=folder_path,folder_name=folder_name,image_id='3',flip_image=flip_image)
 
-      image_save_path = os.path.join(folder_path,folder_name+'_0002.jpg')
-      cv2.imwrite(image_save_path,flip_image)
+    if (num_items%4) == 2:
+
+      flip_image = np.flip(upload_image,0)
+      save_complete_image(folder_path=folder_path,folder_name=folder_name,image_id='1',flip_image=flip_image)
+
+      flip_image = np.flip(upload_image,1)
+      save_complete_image(folder_path=folder_path,folder_name=folder_name,image_id='2',flip_image=flip_image)
+
+    if (num_items%4) == 3:
+
+      flip_image = np.flip(upload_image,0)
+      save_complete_image(folder_path=folder_path,folder_name=folder_name,image_id='1',flip_image=flip_image)
+
+def save_complete_image(folder_path,folder_name,image_id,flip_image):
+
+  image_name = folder_name+'_000C'+image_id+'.jpg'
+
+  image_save_path = os.path.join(folder_path,image_name)
+  cv2.imwrite(image_save_path,flip_image)
 
 def generate_datasets(params):
     
