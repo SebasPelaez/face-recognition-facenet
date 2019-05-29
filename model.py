@@ -184,8 +184,8 @@ def model_fn(features, labels, mode, params):
   false_accept_rate = FAR_metric(pairwise_dist, batch_label, params, 'FAR_metric')
 
   eval_metric_ops = {"fraction_positive_triplets": tf.metrics.mean(fraction)}
-  eval_metric_ops['validation_rate'] = validation_rate
-  eval_metric_ops['false_accept_rate'] = false_accept_rate
+  #eval_metric_ops['validation_rate'] = validation_rate
+  #eval_metric_ops['false_accept_rate'] = false_accept_rate
 
   if mode == tf.estimator.ModeKeys.EVAL:
     return tf.estimator.EstimatorSpec(mode, loss=loss, eval_metric_ops=eval_metric_ops)

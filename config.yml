@@ -5,7 +5,7 @@ url_dataset: 'http://vis-www.cs.umass.edu/lfw/lfw.tgz'
 url_metadata: 'http://vis-www.cs.umass.edu/lfw/lfw-names.txt'
 
 # Parameters that may affect training
-batch_size: 24
+batch_size: 8
 learning_rate: 0.001
 max_steps: 3000
 distance_threshold: 1.242
