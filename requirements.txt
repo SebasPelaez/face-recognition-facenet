@@ -28,7 +28,7 @@ ipython==7.3.0
 ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.13.3
-Jinja2==2.10
+Jinja2==2.10.2
 jsonschema==2.6.0
 jupyter-client==5.2.4
 jupyter-core==4.4.0
@@ -44,7 +44,7 @@ mistune==0.8.4
 nbconvert==5.3.1
 nbformat==4.4.0
 nltk==3.4.1
-notebook==5.7.4
+notebook==5.7.8
 numpy==1.16.1
 opencv-python==4.0.0.21
 pandas==0.24.1
@@ -67,7 +67,7 @@ python-dateutil==2.8.0
 python-magic-bin==0.4.14
 pytz==2018.9
 pywinpty==0.5.5
-PyYAML==3.13
+PyYAML==4.2b1
 pyzmq==18.0.0
 query-string==2019.4.13
 rarfile==3.0
@@ -91,7 +91,7 @@ tornado==5.1.1
 tqdm==4.31.1
 traitlets==4.3.2
 unrar==0.3
-urllib3==1.24.1
+urllib3==1.25.3
 wcwidth==0.1.7
 webencodings==0.5.1
 Werkzeug==0.14.1
