@@ -18,6 +18,9 @@ def download_data(params):
   tar_file = os.path.join(params['data_dir'],params['file_list'][0])
   metadata_file = os.path.join(params['data_dir'],params['file_list'][1])
 
+  if not os.path.exists(params['data_dir']):
+    os.makedirs(params['data_dir'])
+
   wget.download(url_tar_file, params['data_dir'])
   wget.download(url_meta_file, params['data_dir'])
 
@@ -105,18 +108,6 @@ def generate_datasets(params):
 if __name__ == '__main__':
 
   params = utils.yaml_to_dict('config.yml')
-
-  file_list = params['file_list']
-  dir_path = os.path.join(params['data_dir'], params['dataset_name'])
-
-  for file_name in file_list:
-    file_path = os.path.join(params['data_dir'], file_name)
-    print('as',file_path)
-    if os.path.exists(file_path):
-      os.remove(file_path)
-
-  if os.path.exists(dir_path):
-    shutil.rmtree(dir_path, ignore_errors=True)
   
   download_data(params)
   extract_data(params)
