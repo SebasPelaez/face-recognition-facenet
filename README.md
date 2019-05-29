@@ -76,6 +76,7 @@ I developed my own model architecture based on the second category and the first
 ![Training and Validation Loss](assets/Loss.JPG)
 
 * **Predictions in test set**
+
 ![Predictions in test set](assets/Predictions_Test_Set.JPG)
 
 ## How to use
